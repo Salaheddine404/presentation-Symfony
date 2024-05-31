@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Services pour Personnes Handicapées</title>
+    <!-- Inclure votre fichier CSS global -->
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Gestion des Services pour Personnes Handicapées</h1>
+        <!-- Barre de navigation ou en-tête commun à toutes les pages -->
+        <nav>
+          <ul>
+    <li><a href="{{ path('app_desacual') }}">Accueil</a></li>
+    <li><a href="{{ path('app_service') }}">Recherche de Services</a></li> 
+    <li><a href="{{ path('app_message') }}">Demande d'Aides</a></li>
+    <li><a href="{{ path('app_rndvs') }}">Planification de Rendez-vous</a></li>
+    <li><a href="{{ path('app_description') }}">Communication</a></li>
+    <!-- Liens Login et Sign in -->
+    <li class="login-signin-container">
+        <a href="{{ path('app_login') }}" class="login-button">Login</a>
+        <a href="{{ path('app_signin') }}" class="signin-button">Sign up</a>
+    </li>
+</ul>
+
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+            <!-- Contenu spécifique à chaque page sera inséré ici -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Pied de page commun à toutes les pages -->
+        <p>&copy; {{ 'now'|date('Y') }} Gestion des Services pour Personnes Handicapées</p>
+    </footer>
+</body>
+</html> 

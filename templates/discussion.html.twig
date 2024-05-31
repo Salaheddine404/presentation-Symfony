@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Forum de Communication - Gestion des Services pour Personnes Handicapées</title>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Gestion des Services pour Personnes Handicapées</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_desacual') }}">Accueil</a></li>
+                <li><a href="{{ path('app_service') }}">Recherche de Services</a></li> 
+                <li><a href="{{ path('app_message') }}">Demande d'Aides</a></li>
+                <li><a href="{{ path('app_rndvs') }}">Planification de Rendez-vous</a></li>
+                <li><a href="{{ path('app_description') }}">Communication</a></li>
+                <li class="login-signin-container">
+                    <a href="{{ path('app_login') }}" class="login-button">Login</a>
+                    <a href="{{ path('app_signin') }}" class="signin-button">Sign in</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Forum de la Communauté</h2>
+        <section>
+            <h3>Sujets de Discussion</h3>
+            <ul>
+                <li><a href="#">Service 1 - Expériences et Conseils</a></li>
+                <li><a href="#">Service 2 - Questions et Réponses</a></li>
+                <li><a href="#">Service 3 - Ressources Utiles</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Questions et Réponses</h3>
+            <ul>
+                <li><a href="#">Comment puis-je prendre rendez-vous ?</a></li>
+                <li><a href="#">Quels services offrez-vous ?</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Annonces et Actualités</h3>
+            <ul>
+                <li><a href="#">Événement à venir : Conférence sur l'accessibilité</a></li>
+                <li><a href="#">Nouvelle fonctionnalité : Chat en Direct</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Support et Conseils</h3>
+            <ul>
+                <li><a href="#">Besoin d'aide avec le service 1</a></li>
+                <li><a href="#">Conseils pour accéder aux services</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; {{ 'now'|date('Y') }} Gestion des Services pour Personnes Handicapées</p>
+    </footer>
+</body>
+</html>

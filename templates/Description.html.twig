@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Services pour Personnes Handicapées</title>
+    <!-- Inclure votre fichier CSS global -->
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Gestion des Services pour Personnes Handicapées</h1>
+        <!-- Barre de navigation ou en-tête commun à toutes les pages -->
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_desacual') }}">Accueil</a></li>
+                <li><a href="{{ path('app_service') }}">Recherche de Services</a></li> 
+                <li><a href="{{ path('app_message') }}">Demande d'Aides</a></li>
+                <li><a href="{{ path('app_rndvs') }}">Planification de Rendez-vous</a></li>
+                <li><a href="{{ path('app_description') }}">Communication</a></li>
+                <!-- Liens Login et Sign in -->
+                <li class="login-signin-container">
+                    <a href="{{ path('app_login') }}" class="login-button">Login</a>
+                    <a href="{{ path('app_signin') }}" class="signin-button">Sign in</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+            <!-- Contenu de la page de communication -->
+            <!-- Formulaire de Contact -->
+        <section class="description-form">
+            <h2>Formulaire de Communication</h2>
+            <form action="{{ path('app_submit_description_form') }}" method="post">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="service">Service :</label>
+                <select id="service" name="service" required>
+                {% for service in services %}
+                 <option value="{{ service.id }}">{{ service.name }}</option>
+                {% endfor %}
+                </select>
+
+                <label for="demande">Demande :</label>
+                <input type="text" id="demande" name="demande" required>
+                
+                <label for="status">Status :</label>
+                <textarea id="status" name="status" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+
+            <!-- Chat en Direct -->
+            <section class="live-chat">
+                <h2>Chat en Direct</h2>
+                <!-- Intégration d'un service de chat en direct ici -->
+                <p>Parlez en direct avec un de nos agents.</p>
+            </section>
+
+            <!-- FAQ -->
+            <section class="faq">
+                <h2>FAQ</h2>
+                <div class="faq-item">
+                    <h3>Comment puis-je prendre rendez-vous ?</h3>
+                    <p>Vous pouvez prendre rendez-vous en remplissant le formulaire sur la page de planification de rendez-vous.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Quels services offrez-vous ?</h3>
+                    <p>Nous offrons une variété de services pour aider les personnes handicapées, y compris des services de santé, d'éducation et de soutien social.</p>
+                </div>
+                <!-- Plus de questions -->
+            </section>
+
+            <!-- Forum ou Communauté -->
+            <section class="forum">
+                <h2>Forum de la Communauté</h2>
+                <p><a href="{{ path('app_discussion') }}">Rejoignez notre forum pour discuter avec d'autres utilisateurs.</a></p>
+
+            </section>
+
+            <!-- Informations de Contact -->
+            <section class="contact-info">
+                <h2>Informations de Contact</h2>
+                <p>Adresse : 123 Rue de l'Accessibilité, Paris, France</p>
+                <p>Téléphone : 01 23 45 67 89</p>
+                <p>Email : contact@handicap-services.fr</p>
+                <p>Heures d'ouverture : Lun - Ven, 9h - 18h</p>
+            </section>
+
+            <!-- Bulletin d'Informations -->
+            <section class="newsletter">
+                <h2>Bulletin d'Informations</h2>
+                <form action="subscribe_newsletter.php" method="post">
+                    <label for="newsletter-email">Email :</label>
+                    <input type="email" id="newsletter-email" name="newsletter-email" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </section>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Pied de page commun à toutes les pages -->
+        <p>&copy; {{ 'now'|date('Y') }} Gestion des Services pour Personnes Handicapées</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rendez-vous Enregistré</title>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Rendez-vous Enregistré</h1>
+    </header>
+
+    <main>
+        <p>Le rendez-vous a été enregistré avec succès !</p>
+        <a href="{{ path('app_rndvs') }}">Retour</a>
+    </main>
+
+    <footer>
+        <p>&copy; {{ 'now'|date('Y') }} Gestion des Services pour Personnes Handicapées</p>
+    </footer>
+</body>
+</html>

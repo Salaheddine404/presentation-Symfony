@@ -1,0 +1,53 @@
+{# templates/signin.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+        <h1>Gestion des Services pour Personnes Handicapées</h1>
+        <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/flash.css') }}">
+
+        
+
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_main') }}">Accueil</a></li>
+                <li><a href="{{ path('app_service') }}">Recherche de Services</a></li>
+                <li><a href="#">Demande d'Aides</a></li>
+                <li><a href="#">Planification de Rendez-vous</a></li>
+                <li><a href="#">Communication</a></li>
+                <li class="login-signin-container">
+                    <button class="login-button">Login</button>
+                    <button class="signin-button">Sign in</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <h2>Sign In</h2>
+
+            {# Flash messages #}
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="flash-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.name) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.role) }}
+                <button type="submit" class="btn">Sign In</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; {{ 'now'|date('Y') }} Gestion des Services pour Personnes Handicapées</p>
+    </footer>
+{% endblock %}

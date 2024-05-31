@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Services pour Personnes Handicapées</title>
+    <!-- Inclure votre fichier CSS global -->
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Gestion des Services pour Personnes Handicapées</h1>
+        <!-- Barre de navigation ou en-tête commun à toutes les pages -->
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_desacual') }}">Accueil</a></li>
+                <li><a href="{{ path('app_service') }}">Recherche de Services</a></li>
+                <li><a href="{{ path('app_message') }}">Demande d'Aides</a></li>
+                <li><a href="{{ path('app_rndvs') }}">Planification de Rendez-vous</a></li>
+                <li><a href="#">Communication</a></li>
+                <!-- Liens Login et Sign in -->
+                <li class="login-signin-container">
+                    <a href="{{ path('app_login') }}" class="login-button">Login</a>
+                    <a href="{{ path('app_signin') }}" class="signin-button">Sign in</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="content-container">
+            <h2>Demande d'Aide</h2>
+            <form action="{{ path('app_message_save') }}" method="post">
+                <label for="user">Utilisateur :</label>
+                <select id="user" name="user" required>
+                    {% for utilisateur in utilisateurs %}
+                        <option value="{{ utilisateur.id }}">{{ utilisateur.name }}</option>
+                    {% endfor %}
+                </select>
+                
+                <label for="admin">Administrateur :</label>
+                <select id="admin" name="admin" required>
+                    {% for administrateur in administrateurs %}
+                        <option value="{{ administrateur.id }}">{{ administrateur.name }}</option>
+                    {% endfor %}
+                </select>
+                
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Pied de page commun à toutes les pages -->
+        <p>&copy; {{ 'now'|date('Y') }} Gestion des Services pour Personnes Handicapées</p>
+    </footer>
+</body>
+</html>

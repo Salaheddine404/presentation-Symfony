@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+        <h1>Gestion des Services pour Personnes Handicapées</h1>
+        <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+
+        <!-- Barre de navigation ou en-tête commun à toutes les pages -->
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_main') }}">Accueil</a></li>
+                <li><a href="{{ path('app_service') }}">Recherche de Services</a></li> 
+                <li><a href="#">Demande d'Aides</a></li>
+                <li><a href="#">Planification de Rendez-vous</a></li>
+                <li><a href="#">Communication</a></li>
+                <!-- Boutons Login et Sign in -->
+                <li class="login-signin-container">
+                    <button class="login-button">Login</button>
+                    <button class="signin-button">Sign in</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+            <div class="content-container">
+                <h2>Description du Projet :</h2>
+                <p>Notre projet consiste en le développement d'une plateforme en ligne dédiée à la gestion des services pour les personnes handicapées au Maroc. Cette plateforme fournira un moyen centralisé pour accéder à des informations, des ressources et des services essentiels destinés aux personnes handicapées ainsi qu'à leurs familles.</p>
+                
+                <h3>Fonctionnalités Clés :</h3>
+                <ul>
+                    <li>Recherche de Services : Les utilisateurs pourront rechercher les services disponibles pour répondre à leurs besoins spécifiques, tels que les services médicaux, les services de réadaptation, les aides à la mobilité, etc.</li>
+                    <li>Demande d'Aides Spécifiques : Les personnes handicapées et leurs familles pourront soumettre des demandes d'aides spécifiques, telles que des aides financières, des équipements spécialisés, des services d'assistance personnelle, etc.</li>
+                    <li>Planification de Rendez-vous : La plateforme permettra aux utilisateurs de planifier des rendez-vous avec des professionnels qualifiés, tels que des médecins, des thérapeutes, des travailleurs sociaux, etc., pour obtenir des services et des conseils adaptés à leurs besoins.</li>
+                    <li>Communication Facilitée : Elle facilitera la communication entre les différentes parties prenantes impliquées dans le soutien aux personnes handicapées, y compris les professionnels de la santé, les organismes gouvernementaux, les organisations non gouvernementales (ONG), les familles et les personnes handicapées elles-mêmes.</li>
+                    <li>Ressources et Informations : La plateforme fournira également des ressources éducatives, des guides pratiques, des informations juridiques et des actualités pertinentes pour informer et soutenir les utilisateurs dans leur parcours.</li>
+                </ul>
+            </div>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Pied de page commun à toutes les pages -->
+        <p>&copy; {{ 'now'|date('Y') }} Gestion des Services pour Personnes Handicapées</p>
+    </footer>
+{% endblock %}
